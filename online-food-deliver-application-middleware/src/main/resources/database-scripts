@@ -1,0 +1,498 @@
+
+connect system/root;
+
+create user ofda2 identified by ofda2;
+
+grant connect,resource,dba to ofda2;
+
+commit;
+
+connect ofda2/ofda2;
+
+create sequence HIBERNATE_SEQUENCE;
+
+commit;
+	
+create table customers
+(cust_id number(19) constraint customers_cust_id_pk primary key,
+first_name varchar2(50) constraint customers_full_name_nn not null,
+last_name varchar2(50) constraint customers_last_name_nn not null,
+gender varchar2(50) constraint customers_gender_nn not null,
+age varchar2(50) constraint customers_age_nn not null,
+mobile varchar2(50) constraint customers_mobile_nn not null,
+email varchar2(50) constraint customers_email_nn not null);
+
+
+
+Alter table customers Add building_name varchar2(50);
+Alter table customers Add area varchar2(50);
+Alter table customers Add street_no varchar2(50);
+Alter table customers Add city varchar2(50);
+Alter table customers Add state varchar2(50);
+Alter table customers Add country varchar2(50);
+Alter table customers Add pincode varchar2(50);
+
+commit;
+
+
+
+
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(101, 'Akash','Sharma','Male','25','9876543211','aks@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(102, 'Rahul','Singh','Male','30','9854543211','rahul11@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(103, 'Ram','Kumar','Male','40','9854543222','ram12@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(104, 'Arti','Sharma','Female','40','9854543259','artish@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(105, 'Anuj','Kumar','Male','22','9954113259','anuj@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(106, 'Akshit','Sharma','Male','25','9876543211','aks@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(107, 'Akash','Gupta','Male','23','9876545211','akash@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(108, 'Akhil','Sharma','Male','25','9876233211','akhil@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(109, 'Akram','Wasim','Male','26','9876557211','akram@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(110, 'Namit','Sharma','Male','29','9876653211','Namit@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(111, 'Namita','Sharma','Female','49','9876953211','Namita@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(106, 'Akshit','Sharma','Male','25','9876543211','aks@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(107, 'Akash','Gupta','Male','23','9876545211','akash@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(108, 'Akhil','Sharma','Male','25','9876233211','akhil@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(109, 'Akram','Wasim','Male','26','9876557211','akram@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(110, 'Namit','Sharma','Male','29','9876653211','Namit@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(111, 'Namita','Sharma','Female','49','9876953211','Namita@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(113, 'Aman','Kumar','Male','27','9997651246','Aman@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(114, 'Priya','Sharma','Female','26','9821953211','Priya@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(115, 'Virat','Kohli','Male','33','9876953222','ViratK@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(116, 'Ranveer','Sharma','Male','42','9976954444','Ranveer@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(117, 'Sanjana','Sharma','Female','29','9876959911','Sanajana@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(118, 'Shikhar','Kumar','Male','31','9888953211','Shikhar@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(119, 'Anup','Yadav','Male','22','9876913211','AnupY@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(120, 'Prachi','Singh','Female','33','9876653211','Prachi@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(121, 'Ishant','Kumar','Male','49','9876953211','Ishant@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(122, 'Arpit','Kohli','Male','21','9876953333','Arpit@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(123, 'Arpita','Sharma','Female','49','9855953211','Arpita@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(124, 'Aman','Singh','Male','29','9877953211','Aman@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(125, 'Narendra','Singh','Male','57','9876359211','Narendra@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(126, 'Thomas','Anderson','Male','44','9876673211','Thomas@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(127, 'Kevin','Adams','Male','23','9996953211','Kevin@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(128, 'Shreya','Sharma','Female','40','9847953211','Shreya@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(129, 'Manish','Kumar','Male','23','9898253211','Manish@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(130, 'Prateek','Sharma','Male','22','9876953112','Prateek@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(131, 'Vikram','Chauhan','Male','32','9876953211','Vikram@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(132, 'Vikrant','Singh','Male','31','9876334211','Vikrant@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(133, 'Prateek','Singh','Male','22','9879742211','Prateek@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(134, 'Anurag','Kapoor','Male','53','9823953211','Anurag@gmail.com');
+Insert into customers(cust_id,first_name,last_name,gender,age,mobile,email) values(135, 'Andrew','Scott','Male','22','9888253211','Andrew@gmail.com');
+
+
+
+
+	
+update customers set building_name='Guru Kripa';
+update customers set area='Krishna Nagar';
+update customers set street_no='Shankar Vihar';
+update customers set city='Mathura' ;
+update customers set state='Uttar Pradesh';
+update customers set country='INDIA';
+update customers set pincode='281004';
+
+
+create table category	
+(cat_id number(19) constraint category_cat_id_pk primary key,
+category_name varchar2(50) constraint category_category_name_nn not null);
+
+insert into category values(100,'Sandwich');
+insert into category values(101,'Pizza');
+insert into category values(102,'Burger');
+insert into category values(103,'Fries');
+insert into category values(104,'Beverages');
+insert into category values(105,'Pasta');
+insert into category values(106,'Pastry');
+insert into category values(107,'Cake');
+
+
+
+
+
+create table login
+(user_id number(19) constraint login_user_id_pk primary key,
+user_name varchar2(50) constraint login_user_name_un_nn not null,
+password varchar2(50) constraint login_password_nn not null);
+
+
+Alter table login add cust_id number(19);
+ALTER TABLE login
+ADD CONSTRAINT login_cust_id_fk
+  FOREIGN KEY (cust_id)
+  REFERENCES customers(cust_id);
+  
+ Alter table login drop column cust_id;
+  
+
+insert into login(user_id,user_name,password,cust_id) values(1000,'Akash2021','Akash123',101);
+insert into login(user_id,user_name,password,cust_id) values(1001,'Rahul2021','Rahul123',102);
+insert into login(user_id,user_name,password,cust_id) values(1002,'Ram2021','Ram123',103);
+insert into login(user_id,user_name,password,cust_id) values(1003,'Arti2021','Arti123',104);
+insert into login(user_id,user_name,password,cust_id) values(1004,'Anuj2021','Anuj123',105);
+insert into login(user_id,user_name,password,cust_id) values(1005,'Akshit2021','Akshit123',106);
+insert into login(user_id,user_name,password,cust_id) values(1006,'Akash202','Akash1234',107);
+insert into login(user_id,user_name,password,cust_id) values(1007,'Akhil2021','Akhil1234',108);
+insert into login(user_id,user_name,password,cust_id) values(1008,'Akram2021','Akram123',109);
+insert into login(user_id,user_name,password,cust_id) values(1009,'Namit2021','Namit123',110);
+insert into login(user_id,user_name,password,cust_id) values(1010,'Namita2021','Namita123',112);
+insert into login(user_id,user_name,password,cust_id) values(1011,'Admin123','ofda1234',111);
+
+
+
+create table order_details
+(order_id number(19) constraint order_details_order_id_pk primary key,
+order_date date constraint order_details_order_date_nn not null,
+order_status varchar2(50) constraint order_details_order_status_nn not null);
+
+Alter table order_details add cart_id number(19);
+ALTER TABLE order_details
+ADD CONSTRAINT order_details_cart_id_fk
+  FOREIGN KEY (cart_id)
+  REFERENCES food_cart(cart_id);
+  
+  Alter table order_details drop column cart_id;
+
+
+insert into order_details values(0001,'20-apr-2021','Delivered',01);
+insert into order_details values(0002,'20-apr-2021','Delivered',03);
+insert into order_details values(0003,'19-apr-2021','Delivered',02);
+insert into order_details values(0004,'19-apr-2021','Delivered',04);
+insert into order_details values(0005,'18-apr-2021','Delivered',05);
+insert into order_details values(0006,'28-apr-2021','Delivered',06);	
+insert into order_details values(0007,'08-apr-2021','Delivered',07);
+insert into order_details values(0008,'21-apr-2021','Pending',08);
+insert into order_details values(0009,'23-apr-2021','Pending',09);
+insert into order_details values(0010,'22-apr-2021','Delivered',10);
+insert into order_details values(0011,'22-apr-2021','Pending',11);
+insert into order_details values(0012,'24-apr-2021','Pending',12);
+insert into order_details values(0013,'24-apr-2021','Delivered',13);
+insert into order_details values(0014,'23-apr-2021','Pending',14);
+insert into order_details values(0015,'21-apr-2021','Delivered',15);
+insert into order_details values(0016,'25-apr-2021','Pending',16);
+insert into order_details values(0017,'23-apr-2021','Pending',17);
+insert into order_details values(0018,'22-apr-2021','Delivered',18);	
+
+insert into order_details values(19,'23-apr-2021','Delivered',01);
+insert into order_details values(20,'25-apr-2021','Delivered',01);
+insert into order_details values(21,'27-apr-2021','Delivered',01);
+insert into order_details values(22,'29-apr-2021','Delivered',01);
+
+insert into order_details values(23,'23-apr-2021','Delivered',02);
+insert into order_details values(24,'24-apr-2021','Delivered',02);
+insert into order_details values(25,'27-apr-2021','Delivered',02);
+insert into order_details values(26,'29-apr-2021','Delivered',02);
+
+insert into order_details values(27,'28-apr-2021','Delivered',03);
+insert into order_details values(28,'01-may-2021','Delivered',03);
+insert into order_details values(29,'03-may-2021','Delivered',03);
+insert into order_details values(30,'04-may-2021','Delivered',03);
+
+insert into order_details values(31,'28-apr-2021','Delivered',04);
+insert into order_details values(32,'05-may-2021','Delivered',04);
+insert into order_details values(33,'05-may-2021','Delivered',04);
+insert into order_details values(34,'07-may-2021','Pending',04);
+
+insert into order_details values(35,'28-apr-2021','Delivered',05);
+insert into order_details values(36,'29-apr-2021','Delivered',05);
+insert into order_details values(37,'30-apr-2021','Delivered',05);
+insert into order_details values(38,'01-may-2021','Delivered',05);
+
+insert into order_details values(39,'10-may-2021','Delivered',06);
+insert into order_details values(40,'11-may-2021','Delivered',06);
+insert into order_details values(41,'12-may-2021','Delivered',06);
+insert into order_details values(42,'17-may-2021','Delivered',06);
+
+insert into order_details values(43,'18-may-2021','Delivered',07);
+insert into order_details values(44,'19-may-2021','Delivered',07);
+insert into order_details values(45,'20-may-2021','Delivered',07);
+insert into order_details values(46,'21-may-2021','Delivered',07);
+
+insert into order_details values(47,'21-may-2021','Delivered',08);
+insert into order_details values(48,'22-may-2021','Delivered',08);
+insert into order_details values(49,'22-may-2021','Delivered',08);
+insert into order_details values(50,'23-may-2021','Delivered',08);
+
+insert into order_details values(51,'22-may-2021','Delivered',09);
+insert into order_details values(52,'23-may-2021','Delivered',09);
+insert into order_details values(53,'24-may-2021','Delivered',09);
+insert into order_details values(54,'25-may-2021','Delivered',09);
+
+insert into order_details values(55,'20-may-2021','Delivered',10);
+insert into order_details values(56,'21-may-2021','Delivered',10);
+insert into order_details values(57,'22-may-2021','Delivered',10);
+insert into order_details values(58,'23-may-2021','Delivered',10);
+
+have to add  foreign key food cart
+
+
+create table bill
+(bill_id number(19) constraint bill_bill_id_pk primary key,
+total_item number(10) constraint bill_total_item_nn not null,
+total_cost number(10,2) constraint bill_total_cost_nn not null,
+bill_date date constraint bill_bill_date_nn not null,
+order_id number(19) constraint bill_order_id_fk references order_details(order_id));
+
+Alter table bill drop column order_id ;
+
+insert into bill values (100,5,500,'20-apr-2021',0001);
+insert into bill values (101,3,250,'20-apr-2021',0002);
+insert into bill values (102,6,650,'19-apr-2021',0003);
+insert into bill values (103,2,100,'19-apr-2021',0004);
+insert into bill values (104,5,455,'18-apr-2021',0005);
+insert into bill values (105,6,500,'21-apr-2021',0006);
+insert into bill values (118,19,1000,'23-apr-2021',0019);
+insert into bill values (119,10,300,'25-apr-2021',0020);
+insert into bill values (120,12,390,'27-apr-2021',0021);
+insert into bill values (121,11,300,'29-apr-2021',0022);
+insert into bill values (122,3,178,'23-apr-2021',0023);
+insert into bill values (123,7,555,'24-apr-2021',0024);
+insert into bill values (124,11,360,'27-apr-2021',0025);
+insert into bill values (125,4,100,'29-apr-2021',0026);
+insert into bill values (126,11,1000,'28-apr-2021',0027);
+insert into bill values (127,10,1100,'01-may-2021',0028);
+insert into bill values (128,5,200,'03-may-2021',0029);
+insert into bill values (129,5,600,'04-may-2021',0030);
+insert into bill values (130,11,1680,'28-apr-2021',0031);
+insert into bill values (131,2,150,'05-may-2021',0032);
+insert into bill values (132,12,1200,'05-may-2021',0033);
+insert into bill values (133,5,455,'07-may-2021',0034);
+insert into bill values (134,8,345,'28-apr-2021',0035);
+insert into bill values (135,12,679,'29-apr-2021',0036);
+insert into bill values (136,11,1000,'30-apr-2021',0037);
+insert into bill values (137,3,200,'01-may-2021',0038);
+insert into bill values (138,12,1200,'10-may-2021',0039);
+insert into bill values (139,9,900,'11-may-2021',0040);
+insert into bill values (140,4,200,'12-may-2021',0041);
+insert into bill values (141,6,450,'17-may-2021',0042);
+insert into bill values (142,3,250,'18-may-2021',0043);
+insert into bill values (143,2,500,'19-may-2021',0044);
+insert into bill values (144,6,700,'20-may-2021',0045);
+insert into bill values (145,2,250,'21-may-2021',0046);
+insert into bill values (146,7,750,'21-may-2021',0047);
+insert into bill values (147,12,1450,'22-may-2021',0048);
+insert into bill values (148,8,500,'22-may-2021',0049);
+insert into bill values (149,3,450,'23-may-2021',0050);
+insert into bill values (150,9,780,'22-may-2021',0051);
+insert into bill values (151,2,210,'23-may-2021',0052);
+insert into bill values (152,5,550,'24-may-2021',0053);
+insert into bill values (153,3,550,'25-may-2021',0054);
+insert into bill values (154,9,700,'20-may-2021',0055);
+insert into bill values (155,12,1600,'21-may-2021',0056);
+insert into bill values (156,6,650,'22-may-2021',0057);
+insert into bill values (157,3,650,'23-may-2021',0058);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table food_cart
+(cart_id number(19) constraint food_cart_cart_id_pk primary key,
+cust_id number(19) constraint food_cart_cust_id_fk references customers(cust_id));
+
+
+have to add foreign key item
+
+Alter table food_cart add item_id number(19);
+ALTER TABLE food_cart
+ADD CONSTRAINT food_cart_item_id_fk
+  FOREIGN KEY (item_id)
+  REFERENCES items(item_id);
+
+ Alter table food_cart drop column cust_id;
+ Alter table food_cart drop column item_id;
+
+
+  
+insert into food_cart(cart_id,cust_id,item_id) values(01,101,1);
+insert into food_cart(cart_id,cust_id,item_id) values(02,102,2);
+insert into food_cart(cart_id,cust_id,item_id) values(03,103,3);
+insert into food_cart(cart_id,cust_id,item_id) values(04,104,4);
+insert into food_cart(cart_id,cust_id,item_id) values(05,105,5);
+insert into food_cart(cart_id,cust_id,item_id) values(06,106,6);
+insert into food_cart(cart_id,cust_id,item_id) values(07,107,7);
+insert into food_cart(cart_id,cust_id,item_id) values(08,108,8);
+insert into food_cart(cart_id,cust_id,item_id) values(09,109,9);
+insert into food_cart(cart_id,cust_id,item_id) values(10,110,10);
+insert into food_cart(cart_id,cust_id,item_id) values(11,111,11);
+insert into food_cart(cart_id,cust_id,item_id) values(12,112,12);
+insert into food_cart(cart_id,cust_id,item_id) values(13,113,13);
+insert into food_cart(cart_id,cust_id,item_id) values(14,114,14);
+insert into food_cart(cart_id,cust_id,item_id) values(15,115,15);
+insert into food_cart(cart_id,cust_id,item_id) values(16,116,16);
+insert into food_cart(cart_id,cust_id,item_id) values(17,117,17);
+insert into food_cart(cart_id,cust_id,item_id) values(18,118,18);
+insert into food_cart(cart_id,cust_id,item_id) values(19,119,19);
+insert into food_cart(cart_id,cust_id,item_id) values(20,120,20);
+insert into food_cart(cart_id,cust_id,item_id) values(21,121,21);
+insert into food_cart(cart_id,cust_id,item_id) values(22,122,22);
+  
+
+
+create table items
+(item_id number(19) constraint items_item_id_pk primary key,
+item_name varchar2(30) constraint items_item_name_nn not null,
+quantity number(10) constraint items_quantity_nn not null,
+cost number(10,2) constraint items_cost_nn not null);
+
+
+have to add foreign key restaurant
+
+Alter table items add restaurant_id number(19);
+ALTER TABLE items
+ADD CONSTRAINT items_restaurant_id_fk
+  FOREIGN KEY (restaurant_id)
+  REFERENCES restaurants(restaurant_id);
+  
+  Alter table items add cat_id number(19);
+ALTER TABLE items
+ADD CONSTRAINT items_cat_id_fk
+  FOREIGN KEY (cat_id)
+  REFERENCES category(cat_id);
+  
+Alter table items Add cart_id number(19);
+  ALTER TABLE items
+ADD CONSTRAINT items_cart_id_fk
+  FOREIGN KEY (cart_id)
+  REFERENCES food_cart(cart_id);
+
+
+Alter table items drop column restaurant_id;
+
+
+
+
+insert into items(item_id,item_name,quantity,cost) values(1,'Cheese Sandwich',10,50);
+insert into items(item_id,item_name,quantity,cost) values(2,'Double Cheese Grill Sandwich',20,75);
+insert into items(item_id,item_name,quantity,cost) values(3,'Veg Burger',10,55);
+insert into items(item_id,item_name,quantity,cost) values(4,'Veg Supreme Burger',50,85);
+insert into items(item_id,item_name,quantity,cost) values(5,'Cheese Pizza',6,100);
+insert into items(item_id,item_name,quantity,cost) values(6,'Tomato Onion Cheese Pizza',12,120);
+insert into items(item_id,item_name,quantity,cost) values(7,'French Fries',13,45);
+insert into items(item_id,item_name,quantity,cost) values(8,'Cold Coffee',14,72);
+insert into items(item_id,item_name,quantity,cost) values(9,'Ice Tea',12,70);
+insert into items(item_id,item_name,quantity,cost) values(10,'Coke',11,70);
+insert into items(item_id,item_name,quantity,cost) values(11,'Diet Coke',20,65);
+insert into items(item_id,item_name,quantity,cost) values(12,'Chocolate Shake',25,40);
+insert into items(item_id,item_name,quantity,cost) values(13,'Mango Shake',20,40);
+insert into items(item_id,item_name,quantity,cost) values(14,'Veg Arrabbiata Pasta',20,255);
+insert into items(item_id,item_name,quantity,cost) values(15,'Veg Mushroom and Cream Pasta',30,255);
+insert into items(item_id,item_name,quantity,cost) values(16,'Pineapple Pastry',30,50);
+insert into items(item_id,item_name,quantity,cost) values(17,'Black Forest Pastry',30,50);
+insert into items(item_id,item_name,quantity,cost) values(18,'Red Velvet Pastry',30,70);
+insert into items(item_id,item_name,quantity,cost) values(19,'Butterscotch Pastry',30,65);
+insert into items(item_id,item_name,quantity,cost) values(20,'Black Forest Cake',10,380);
+insert into items(item_id,item_name,quantity,cost) values(21,'Redvelvet Cake',10,900);
+insert into items(item_id,item_name,quantity,cost) values(22,'Tutti Frooti Cake',8,200);
+insert into items(item_id,item_name,quantity,cost) values(23,'Chocolate Truffle Cake',10,400);
+insert into items(item_id,item_name,quantity,cost) values(24,'PineApple Cake',10,300);
+insert into items(item_id,item_name,quantity,cost) values(25,'Strawberry Cake',10,350);
+
+
+update items set cart_id=1 where item_id=1;
+update items set cart_id=1 where item_id=5;
+update items set cart_id=1 where item_id=6;
+update food_cart set item_id=5 where cart_id=5;
+update items set cart_id=2 where item_id in(2,7);
+update items set cart_id=3 where item_id in(3,8);
+update items set cart_id=4 where item_id in(4,9);
+update items set cart_id=5 where item_id in(5,10);
+update items set cart_id=2 where item_id in(11,12);
+update items set cart_id=3 where item_id in(13,14);
+update items set cart_id=6 where item_id in(15,16);
+update items set cart_id=4 where item_id in(17,18);
+update items set cart_id=5 where item_id in(19,20);
+update items set cart_id=2 where item_id in(21,22);
+update items set cart_id=3 where item_id in(23,24);
+update items set cart_id=4 where item_id=25;
+
+
+update items set cat_id=100 where item_id in(1,2);
+update items set cat_id=102 where item_id in(3,4);
+update items set cat_id=101 where item_id in(5,6);
+update items set cat_id=103 where item_id in(7);
+update items set cat_id=104 where item_id in(8,9,10);
+update items set cat_id=104 where item_id in(11,12,13);
+update items set cat_id=105 where item_id in(14,15);
+update items set cat_id=106 where item_id in(16,17,18,19);
+update items set cat_id=107 where item_id in(20,21,22,23,24,25);
+
+
+update items set restaurant_Id=1 where item_id in(1,7);
+update items set restaurant_Id=2 where item_id in(2,8);
+update items set restaurant_Id=3 where item_id in(3,9);
+update items set restaurant_Id=4 where item_id in(6,10);
+update items set restaurant_Id=5 where item_id=5;
+update items set restaurant_Id=6 where item_id=4;
+update items set restaurant_Id=1 where item_id in(11,13,15);
+update items set restaurant_Id=2 where item_id in(12,14,16);
+update items set restaurant_Id=3 where item_id in(17,19,21);
+update items set restaurant_Id=4 where item_id in(18,20,22);
+update items set restaurant_Id=5 where item_id in(23,24,25);
+
+
+
+
+create table restaurants
+(restaurant_id number(19) constraint restaurants_restaurant_id_pk primary key,
+restaurant_name varchar2(30) constraint restaurants_restaurant_name_nn not null,
+manager_name varchar2(30) constraint restaurants_manager_name_nn not null,
+contact_number varchar2(50) constraint restaurants_contact_number_nn not null);
+
+ Alter table restaurants add item_id number(19);
+ALTER TABLE restaurants
+ADD CONSTRAINT restaurants_item_id_fk
+  FOREIGN KEY (item_id)
+  REFERENCES items(item_id);
+  
+  
+Alter table restaurants Add building_name varchar2(50);
+Alter table restaurants Add area varchar2(50);
+Alter table restaurants Add street_no varchar2(50);
+Alter table restaurants Add city varchar2(50);
+Alter table restaurants Add state varchar2(50);
+Alter table restaurants Add country varchar2(50);
+Alter table restaurants Add pincode varchar2(50);
+  
+  Alter table restaurants drop  column item_id ;
+  
+insert into restaurants(restaurant_id,restaurant_name,manager_name,contact_number,item_id) values(1,'Taj Hotel','Ram Kishan','9876543201',1);
+insert into restaurants(restaurant_id,restaurant_name,manager_name,contact_number,item_id) values(2,'Moti Mahal Hotel','Kishan','9876543201',2);
+insert into restaurants(restaurant_id,restaurant_name,manager_name,contact_number,item_id) values(3,'Agrawal Restaurant','Kishan kamal','9876543201',3);
+insert into restaurants(restaurant_id,restaurant_name,manager_name,contact_number,item_id) values(4,'Basera Restaurant','Ramesh jain','9876543201',6);
+insert into restaurants(restaurant_id,restaurant_name,manager_name,contact_number,item_id) values(5,'Hotel Heera','Suresh Sharma','9876543201',5);
+insert into restaurants(restaurant_id,restaurant_name,manager_name,contact_number,item_id) values(6,'Brijwasi Royal','Kamlesh Shri','9876543201',4);
+
+ update restaurants set building_name='Guru Krpia';
+update restaurants set building_name='Pacific Mall' where restaurant_id in(1,3);
+update restaurants set building_name='Pacific Mall' where restaurant_id in(1,2,3);
+ update restaurants set building_name='Great Indian Palace' where restaurant_id in(4,5,6);
+update restaurants set area='Refinary' where restaurant_id in(1,2,3);
+update restaurants set area='Sector 38' where restaurant_id in(4,5,6);
+update restaurants set street_no='A01D' where restaurant_id in(1,2,3);
+update restaurants set street_no='Block-A' where restaurant_id in(4,5,6);
+update restaurants set city='Mathura' where restaurant_id in(1,2,3);
+update restaurants set city='Noida' where restaurant_id in(4,5,6);
+update restaurants set state='Uttar Pradesh' where restaurant_id in(1,2,3);
+update restaurants set state='Uttar Pradesh' where restaurant_id in(4,5,6);
+update restaurants set country='India';
+update restaurants set pincode='455311' where restaurant_id in(1,2,3);
+update restaurants set pincode='281003' where restaurant_id in(4,5,6);
+
+
+ create table restaurant_item_list(
+ item_id number(19) references items(item_id),
+ restaurant_id number(19) references restaurants(restaurant_id));   
+ 
+  commit;
+   
